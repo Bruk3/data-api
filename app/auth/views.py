@@ -62,7 +62,7 @@ def register():
             db.session.commit()
             token = generate_confirmation_token(user.email)
             send_message(recipients=[user.email],
-                         subject="DATA@CU Email Testing",
+                         subject="DATA@CU Email Verification",
                          text="This is your user confirmation link",
                          template='auth/email/confirm.html',
                          token=token,
@@ -166,7 +166,7 @@ def unconfirmed():
 def resend_confirmation():
     token = generate_confirmation_token(current_user.email)
     send_message(recipients=[current_user.email],
-                 subject="DATA@CU Email Testing",
+                 subject="DATA@CU Email Confirmation",
                  text="This is your user confirmation link",
                  template='auth/email/confirm.html',
                  token=token,

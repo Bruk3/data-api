@@ -58,5 +58,5 @@ class RegistrationForm(FlaskForm):
         if User.query.filter_by(email=field.data).first():
             raise ValidationError('Email already registered')
         elif email[-12:] != VALID_SUFFIX[0] and email[-11:] != VALID_SUFFIX[1]:
-            email_err = "Email address need to be columbia.edu or barndard.edu"
+            email_err = "Email address needs to be columbia.edu or barnard.edu"
             raise ValidationError(email_err)
